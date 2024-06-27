@@ -1,16 +1,22 @@
-# admin_app
+# Admin Salon App
 
-A new Flutter project.
+# Authentication: 
+  User login via an email/password specific for admin only
 
-## Getting Started
+# Bookings Management Screen: 
+  Display and manage bookings made by users.
 
-This project is a starting point for a Flutter application.
+# Deals Management Screen: 
+  View, add and remove deals that contains images,title and a descriptions. This changes will reflect on Sohna Salon App. 
 
-A few resources to get you started if this is your first Flutter project:
+# Services Management Screen:
+   View, add and remove services that contains images,title and a descriptions. This changes will reflect on Sohna Salon App.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+# Specialist Management Screen: 
+  View, add and remove specialist that contains images,title and a descriptions. This changes will reflect on Sohna Salon App.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+# FAQs Management Screen: 
+  Display and manage faqs. This changes will reflect on Sohna Salon App.
+
+# Backend: 
+  Data stored and fetched using Firebase; Stream Provider and RiverPod for data management.
