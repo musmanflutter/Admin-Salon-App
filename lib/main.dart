@@ -9,9 +9,23 @@ import 'firebase_options.dart';
 import 'package:admin_app/screens/others/common_screen.dart';
 import 'package:admin_app/screens/others/login_screen.dart';
 
-final lightThemeSet = ThemeData().copyWith(
-  colorScheme: ColorScheme.fromSeed(
-    seedColor: const Color.fromARGB(255, 255, 0, 0),
+final themeSet = ThemeData(
+  useMaterial3: false,
+  primaryColor: Color(0xFFc10100),
+  colorScheme: const ColorScheme(
+    brightness: Brightness.light,
+    primary: Color(0xFFc10100),
+    onPrimary: Colors.white,
+    secondary: Color(0xFFc10100),
+    onSecondary: Colors.white,
+    error: Colors.red,
+    onError: Colors.white,
+    background: Colors.white,
+    onBackground: Colors.black,
+    surface: Colors.white,
+    onSurface: Colors.black,
+    primaryContainer: Color(0xFFffe7e0),
+    onPrimaryContainer: Colors.black,
   ),
   textTheme: GoogleFonts.latoTextTheme(),
 );
@@ -19,9 +33,7 @@ final lightThemeSet = ThemeData().copyWith(
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   FirebaseFirestore.instance.settings = const Settings(
     persistenceEnabled: true,
   );
@@ -36,7 +48,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       themeMode: ThemeMode.system,
-      theme: lightThemeSet,
+      theme: themeSet,
       debugShowCheckedModeBanner: false,
       home: StreamBuilder(
         stream: FirebaseAuth.instance.authStateChanges(),
@@ -45,9 +57,7 @@ class MyApp extends StatelessWidget {
             return Text(snapshot.error.toString());
           }
           if (snapshot.connectionState == ConnectionState.waiting) {
-            return const Center(
-              child: CircularProgressIndicator(),
-            );
+            return const Center(child: CircularProgressIndicator());
           }
           if (snapshot.hasData) {
             return const CommonScreen();
